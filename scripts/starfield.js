@@ -230,6 +230,7 @@ guiAnims.add(STAR_CONFIG, "spaceSpeed", 0, 1000);
 guiAnims.add(STAR_CONFIG, "hoverRadius", 0.01, 0.3);
 guiAnims.add(STAR_CONFIG, "hoverScaleAmp", 1.0, 5.0);
 guiAnims.add(STAR_CONFIG, "hoverEase", 0.01, 0.3);
+gui.hide();
 
 const _project = new THREE.Vector3();
 const dummy = new THREE.Object3D();
