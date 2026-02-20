@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ko0 — Portfolio</title>
+    <meta name="description" content="Ko0's 3D Portfolio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.182.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.182.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Starfield BG -->
+    <canvas id="starlight-bg"></canvas>
+
+    <!-- Scanlines -->
+    <div id="scanlines" aria-hidden="true"></div>
+
+    <!-- Corner brackets -->
+    <div class="corner tl" aria-hidden="true"></div>
+    <div class="corner tr" aria-hidden="true"></div>
+    <div class="corner bl" aria-hidden="true"></div>
+    <div class="corner br" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <nav id="nav">
+      <div id="nav-logo" class="text-anim">Ko0</div>
+      <ul id="nav-links">
+        <li>
+          <button class="nav-btn active" data-section="home">HOME</button>
+        </li>
+        <li>
+          <button class="nav-btn" data-section="projects">PROJECTS</button>
+        </li>
+        <li><button class="nav-btn" data-section="skills">SKILLS</button></li>
+        <li><button class="nav-btn" data-section="about">ABOUT</button></li>
+      </ul>
+      <div id="nav-status"><span class="dot"></span>ONLINE</div>
+    </nav>
+
+    <!-- SECTIONS -->
+    <main id="viewport">
+      <!-- HOME -->
+      <section id="home" class="panel active">
+        <div class="panel-inner home-layout">
+          <div class="home-left">
+            <div class="home-greeting animate__animated animate__fadeInDown">
+              <div class="eyebrow">
+                PORTFOLIO <span class="sep">///</span> v2.0
+              </div>
+              <!-- flat text only — typewriter reads textContent, no child tags -->
+              <h1 class="hero-title text-anim">Hello, this is Ko0!</h1>
+              <p class="hero-sub">
+                Welcome — a space to showcase my projects &amp; skills. Feel
+                free to snoop around.
+              </p>
+            </div>
+
+            <!-- GitHub card template (hidden, cloned by JS) -->
+            <div id="github-card-container">
+              <div
+                id="github-card"
+                class="g-card animate__animated animate__fadeInUp"
+              >
+                <div class="g-card-header">
+                  <!-- No background on avatar — card shows through -->
+                  <div class="g-avatar-wrap">
+                    <div id="github-dp" class="g-avatar"></div>
+                    <div class="g-avatar-ring"></div>
+                  </div>
+                  <div class="g-identity">
+                    <span id="github-un" class="g-name">MyName</span>
+                    <span id="github-tl" class="g-handle">@MyUsername</span>
+                  </div>
+                  <div class="g-badge">GH</div>
+                </div>
+
+                <p id="github-bio" class="g-bio">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+
+                <div class="g-stats">
+                  <div class="g-stat">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 .25a.75.75 0 0 1 .673.418l3.058 6.197 6.839.994a.75.75 0 0 1 .415 1.279l-4.948 4.823 1.168 6.811a.751.751 0 0 1-1.088.791L12 18.347l-6.117 3.216a.75.75 0 0 1-1.088-.79l1.168-6.812-4.948-4.823a.75.75 0 0 1 .416-1.28l6.838-.993L11.328.668A.75.75 0 0 1 12 .25Z"
+                      />
+                    </svg>
+                    <span id="github-stars" class="g-val">0</span>
+                    <span class="g-lbl">Stars</span>
+                  </div>
+                  <div class="g-stat">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M8.75 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM15 4.75a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm-12.5 0a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM5.75 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 5.75 6.5ZM12 21a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 12 21Zm6.25-14.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 18.25 6.5Z"
+                      />
+                      <path
+                        d="M6.5 7.75v1A2.25 2.25 0 0 0 8.75 11h6.5a2.25 2.25 0 0 0 2.25-2.25v-1H19v1a3.75 3.75 0 0 1-3.75 3.75h-6.5A3.75 3.75 0 0 1 5 8.75v-1Z"
+                      />
+                      <path d="M11.25 16.25v-5h1.5v5h-1.5Z" />
+                    </svg>
+                    <span id="github-forks" class="g-val">0</span>
+                    <span class="g-lbl">Forks</span>
+                  </div>
+                  <div class="g-stat">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M3.5 8a5.5 5.5 0 1 1 8.596 4.547 9.005 9.005 0 0 1 5.9 8.18.751.751 0 0 1-1.5.045 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.499-.044 9.005 9.005 0 0 1 5.9-8.181A5.496 5.496 0 0 1 3.5 8ZM9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm8.29 4c-.148 0-.292.01-.434.03a.75.75 0 1 1-.212-1.484 4.53 4.53 0 0 1 3.38 8.097 6.69 6.69 0 0 1 3.956 6.107.75.75 0 0 1-1.5 0 5.193 5.193 0 0 0-3.696-4.972l-.534-.16v-1.676l.41-.209A3.03 3.03 0 0 0 17.29 8Z"
+                      />
+                    </svg>
+                    <span id="github-flw" class="g-val">0</span>
+                    <span class="g-lbl">Followers</span>
+                  </div>
+                  <div class="g-stat">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M16.944 11h4.306a.75.75 0 0 1 0 1.5h-4.306a5.001 5.001 0 0 1-9.888 0H2.75a.75.75 0 0 1 0-1.5h4.306a5.001 5.001 0 0 1 9.888 0Zm-1.444.75a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0Z"
+                      />
+                    </svg>
+                    <span id="github-commits" class="g-val">0</span>
+                    <span class="g-lbl">Commits</span>
+                  </div>
+                  <div class="g-stat">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M13.405 1.72a.75.75 0 0 1 0 1.06L12.185 4h4.065A3.75 3.75 0 0 1 20 7.75v8.75a.75.75 0 0 1-1.5 0V7.75a2.25 2.25 0 0 0-2.25-2.25h-4.064l1.22 1.22a.75.75 0 0 1-1.061 1.06l-2.5-2.5a.75.75 0 0 1 0-1.06l2.5-2.5a.75.75 0 0 1 1.06 0ZM4.75 7.25A.75.75 0 0 1 5.5 8v8A.75.75 0 0 1 4 16V8a.75.75 0 0 1 .75-.75Z"
+                      />
+                      <path
+                        d="M16 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm-14.5 0a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Z"
+                      />
+                    </svg>
+                    <span id="github-prs" class="g-val">0</span>
+                    <span class="g-lbl">PRs</span>
+                  </div>
+                  <div class="g-stat">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M3 2.75A2.75 2.75 0 0 1 5.75 0h14.5a.75.75 0 0 1 .75.75v20.5a.75.75 0 0 1-.75.75h-6a.75.75 0 0 1 0-1.5h5.25v-4H6A1.5 1.5 0 0 0 4.5 18v.75c0 .716.43 1.334 1.05 1.605a.75.75 0 0 1-.6 1.374A3.251 3.251 0 0 1 3 18.75ZM19.5 1.5H5.75c-.69 0-1.25.56-1.25 1.25v12.651A2.989 2.989 0 0 1 6 15h13.5Z"
+                      />
+                      <path
+                        d="M7 18.25a.25.25 0 0 1 .25-.25h5a.25.25 0 0 1 .25.25v5.01a.25.25 0 0 1-.397.201l-2.206-1.604a.25.25 0 0 0-.294 0L7.397 23.46a.25.25 0 0 1-.397-.2v-5.01Z"
+                      />
+                    </svg>
+                    <span id="github-repos" class="g-val">0</span>
+                    <span class="g-lbl">Repos</span>
+                  </div>
+                </div>
+
+                <div class="g-footer">
+                  <span class="g-langs-label">Languages</span>
+                  <!-- template pill — MUST exist before draw_card clones it -->
+                  <ul id="github-lang" class="g-lang-list">
+                    <li
+                      id="github-skill"
+                      class="g-lang-tag"
+                      style="display: none"
+                    ></li>
+                  </ul>
+                </div>
+
+                <div class="g-card-scan" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <!-- Card navigation -->
+            <div class="g-nav">
+              <button
+                id="github-card-prev"
+                class="g-nav-btn"
+                aria-label="Previous"
+              >
+                &#8592;
+              </button>
+              <div id="g-nav-dots"></div>
+              <button id="github-card-next" class="g-nav-btn" aria-label="Next">
+                &#8594;
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Character art -->
+          <div class="home-right">
+            <canvas id="oli-png-img" class="char-canvas"></canvas>
+            <div class="char-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="panel">
+        <div class="panel-inner">
+          <div class="section-header">
+            <div class="eyebrow">02 <span class="sep">///</span> WORK</div>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-sub">
+              Each links to a GitHub repo. Snoop snoop snoop…
+            </p>
+          </div>
+          <div class="project-grid" id="project-grid">
+            <div class="proj-card">
+              <div class="proj-num">01</div>
+              <h3>Coming Soon</h3>
+              <p>Projects will appear here once loaded from GitHub.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="panel">
+        <div class="panel-inner">
+          <div class="section-header">
+            <div class="eyebrow">03 <span class="sep">///</span> TOOLBOX</div>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-sub">
+              Just the tools I used when building things.
+            </p>
+          </div>
+          <div class="skills-grid lg:max-w-[500px]" id="skills-grid">
+            <div class="skill-chip">C#</div>
+            <div class="skill-chip">C++</div>
+            <div class="skill-chip">Java</div>
+            <div class="skill-chip">Python</div>
+            <div class="skill-chip">Assembly</div>
+            <div class="skill-chip">IDA</div>
+            <div class="skill-chip">Git</div>
+            <div class="skill-chip">VS Code</div>
+            <div class="skill-chip">Visual Studio 2022</div>
+            <div class="skill-chip">Three.js</div>
+            <div class="skill-chip">Unity</div>
+            <div class="skill-chip">Flash / SWF</div>
+            <div class="skill-chip">JavaScript</div>
+            <div class="skill-chip">HTML / CSS</div>
+            <div class="skill-chip">Tailwind</div>
+            <div class="skill-chip">Chat GPT</div>
+            <div class="skill-chip">Claude</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="panel">
+        <div class="panel-inner about-layout">
+          <div class="section-header">
+            <div class="eyebrow">04 <span class="sep">///</span> ME</div>
+            <h2 class="section-title">About</h2>
+          </div>
+          <div class="about-body">
+            <p>
+              This portfolio is a space to collect and share my projects &amp;
+              skills. It will keep growing as I explore new ideas.
+            </p>
+            <p>That's the end of the tour — thanks for snooping around!</p>
+          </div>
+          <div class="about-deco" aria-hidden="true">
+            <div class="deco-ring r1"></div>
+            <div class="deco-ring r2"></div>
+            <div class="deco-ring r3"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- HUD bottom bar -->
+    <div id="hud-bar">
+      <span id="hud-section">HOME</span>
+      <div id="hud-dots">
+        <span class="hud-dot active" data-section="home"></span>
+        <span class="hud-dot" data-section="projects"></span>
+        <span class="hud-dot" data-section="skills"></span>
+        <span class="hud-dot" data-section="about"></span>
+      </div>
+      <span id="hud-coords">0.000 / 0.000</span>
+    </div>
+
+    <script type="module" src="scripts/starfield.js"></script>
+    <script type="module" src="scripts/script.js" defer></script>
+  </body>
+</html>
