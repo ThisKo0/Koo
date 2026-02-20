@@ -1,0 +1,9 @@
+newmtl glow
+Kd 0.991824 1 0.310346
+d 1
+illum 2
+map_Kd gradient.png
+Ks 0 0 0
+Ns 500
+map_d gradient.png
+
